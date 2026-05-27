@@ -69,3 +69,26 @@ A saída será gerada em `dist/`.
 - As rotas de banco aceitam apenas tabelas permitidas em `api/db/helpers.php`.
 - O login utiliza tabela `usuarios` com `password_hash` do PHP.
 - Para segurança em produção, restrinja CORS e implemente JWT/sessão persistente.
+
+
+## 9) Diagnóstico rápido de conexão (Hostinger)
+1. Crie `public_html/api/.env` com:
+
+```env
+DB_HOST=SEU_HOST_MYSQL
+DB_PORT=3306
+DB_NAME=SEU_BANCO
+DB_USER=SEU_USUARIO
+DB_PASS=SUA_SENHA
+DB_CHARSET=utf8mb4
+```
+
+2. Teste no navegador:
+- `https://SEU_DOMINIO.com/api/db/ping`
+
+Resposta esperada:
+- `ok: true`
+- `database` com nome do banco
+- `total_clientes` com quantidade de registros
+
+Se `ok: false`, revise credenciais MySQL e permissões do usuário no hPanel.

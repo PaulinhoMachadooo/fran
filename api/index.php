@@ -8,6 +8,7 @@ $map = [
   '/db/insert' => __DIR__ . '/db/insert.php',
   '/db/update' => __DIR__ . '/db/update.php',
   '/db/delete' => __DIR__ . '/db/delete.php',
+  '/db/ping' => __DIR__ . '/db/ping.php',
   '/auth/sign-in' => __DIR__ . '/auth/sign-in.php',
   '/auth/sign-up' => __DIR__ . '/auth/sign-up.php',
   '/auth/login' => __DIR__ . '/auth/login.php',
