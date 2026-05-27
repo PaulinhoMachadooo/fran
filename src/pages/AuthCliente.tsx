@@ -148,16 +148,12 @@ export default function AuthCliente() {
       localStorage.setItem(TOKEN_KEY, authData.token);
 
       if (authData.user) {
-        try {
-          await api.post("/clientes", {
-            user_id: authData.user.id,
-            nome: signupData.nome,
-            email: generatedEmail,
-            telefone: cleanPhone,
-          });
-        } catch (insertError) {
-          console.error("Erro na inserção:", insertError);
-        }
+        await api.post("/clientes", {
+          user_id: authData.user.id,
+          nome: signupData.nome,
+          email: generatedEmail,
+          telefone: cleanPhone,
+        });
 
         toast({
           title: "Cadastro realizado!",
