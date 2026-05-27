@@ -10,12 +10,21 @@ $map = [
   '/db/delete' => __DIR__ . '/db/delete.php',
   '/auth/sign-in' => __DIR__ . '/auth/sign-in.php',
   '/auth/sign-up' => __DIR__ . '/auth/sign-up.php',
+  '/auth/login' => __DIR__ . '/auth/login.php',
+  '/auth/register' => __DIR__ . '/auth/register.php',
+  '/auth/me' => __DIR__ . '/auth/me.php',
   '/auth/sign-out' => __DIR__ . '/auth/sign-out.php',
   '/auth/session' => __DIR__ . '/auth/session.php',
+  '/clientes' => __DIR__ . '/resources/clientes.php',
 ];
 
 if (isset($map[$route])) {
   require $map[$route];
+  exit;
+}
+
+if (preg_match('#^/clientes/[^/]+$#', $route)) {
+  require __DIR__ . '/resources/clientes.php';
   exit;
 }
 http_response_code(404);
